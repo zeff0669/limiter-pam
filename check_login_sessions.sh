@@ -1,9 +1,7 @@
 #!/bin/bash
 user="$PAM_USER"
 limite=$(grep "$user" /root/usuarios.db | awk '{print $2}')
-if [ -z "$limite" ]; then
-    limite=1
-elif ! [[ "$limite" =~ ^[0-9]+$ ]]; then
+if ! [[ "$limite" =~ ^[0-9]+$ ]]; then
     limite=1
 fi
 if [ "$user" = "root" ]; then
