@@ -1,4 +1,5 @@
 #!/bin/bash
+#Author: https://github.com/zeff0669
 wget -O /usr/local/bin/limiter-pam https://github.com/zeff0669/limiter-pam/raw/main/limiter-pam
 chmod +x /usr/local/bin/limiter-pam
 
