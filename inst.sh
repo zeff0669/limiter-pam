@@ -11,3 +11,4 @@ if [ -f /usr/local/bin/limiter-pam ]; then
     echo "ClientAliveCountMax 1" >> /etc/ssh/sshd_config
     systemctl restart ssh >/dev/null 2>&1
 fi
+echo "INSTALADO COM SUCESSO"
