@@ -1,12 +1,11 @@
 #!/bin/bash
-user="$PAM_USER"
-limite=$(grep "$user" /root/usuarios.db | awk '{print $2}')
+limite=$(grep "$PAM_USER" /root/usuarios.db | awk '{print $2}')
 if ! [[ "$limite" =~ ^[0-9]+$ ]]; then
     limite=1
 fi
-if [ "$user" = "root" ]; then
+if [ "$PAM_USER" = "root" ]; then
     exit 0
-elif [ "$(ps -ef | grep "sshd: $user" | grep priv | grep -v grep | grep -v " $user priv" | wc -l)" -gt "$limite" ]; then
+elif [ "$(ps -ef | grep "sshd: $PAM_USER" | grep priv | grep -v grep | wc -l)" -gt "$limite" ]; then
     exit 1
 else
     exit 0
