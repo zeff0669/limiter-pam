@@ -10,5 +10,6 @@ if [ -f /usr/local/bin/limiter-pam ]; then
     echo "ClientAliveInterval 2" >> /etc/ssh/sshd_config
     echo "ClientAliveCountMax 1" >> /etc/ssh/sshd_config
     systemctl restart ssh >/dev/null 2>&1
+    echo "INSTALADO COM SUCESSO"
 fi
-echo "INSTALADO COM SUCESSO"
+
