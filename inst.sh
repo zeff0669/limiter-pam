@@ -9,7 +9,10 @@ if [ -f /usr/local/bin/limiter-pam ]; then
     echo "account required pam_echo.so LIMITE DE CONEXÕES ATINGIDO" >> /etc/pam.d/sshd
     echo "ClientAliveInterval 2" >> /etc/ssh/sshd_config
     echo "ClientAliveCountMax 1" >> /etc/ssh/sshd_config
-    systemctl restart ssh >/dev/null 2>&1
+    echo "ClientAliveInterval 2" >> /etc/hpnssh/sshd_config
+    echo "ClientAliveCountMax 1" >> /etc/hpnssh/sshd_config
+    systemctl restart ssh 
+    systemctl restart hpnssh
     echo "INSTALADO COM SUCESSO"
 fi
 
