@@ -7,6 +7,8 @@ if [ -f /usr/local/bin/limiter-pam ]; then
     #echo "auth required pam_exec.so /usr/local/bin/limiter-pam" >> /etc/pam.d/sshd
     echo "account required pam_exec.so quiet /usr/local/bin/limiter-pam" >> /etc/pam.d/sshd
     echo "account required pam_echo.so LIMITE DE CONEXÕES ATINGIDO" >> /etc/pam.d/sshd
+    echo "account required pam_exec.so quiet /usr/local/bin/limiter-pam" >> /etc/pam.d/other
+    echo "account required pam_echo.so LIMITE DE CONEXÕES ATINGIDO" >> /etc/pam.d/other
     echo "ClientAliveInterval 2" >> /etc/ssh/sshd_config
     echo "ClientAliveCountMax 1" >> /etc/ssh/sshd_config
     echo "ClientAliveInterval 2" >> /etc/hpnssh/sshd_config
